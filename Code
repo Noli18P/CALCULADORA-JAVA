@@ -1,0 +1,109 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Calculadora extends JFrame implements ActionListener {
+
+  private JLabel label1, label2, label3;
+  private JTextField valor1, valor2;
+  private JButton suma, resta, div, mul;
+
+  public Calculadora() {
+
+    setLayout(null);
+
+    label1 = new JLabel("Numero 1: ");
+    label1.setBounds(10, 10, 100, 20);
+    add(label1);
+  
+    label2 = new JLabel("Numero 2: ");
+    label2.setBounds(10, 50, 100, 20);
+    add(label2);
+
+    label3 = new JLabel("Resultado: ");
+    label3.setBounds(10, 140, 120, 20);
+    add(label3);
+
+    valor1 = new JTextField();
+    valor1.setBounds(100, 10, 100, 20);
+    add(valor1);
+
+    valor2 = new JTextField();
+    valor2.setBounds(100, 50, 100, 20);
+    add(valor2);
+
+    suma = new JButton("SUMAR");
+    suma.setBounds(230, 10, 90, 20);
+    add(suma);
+    suma.addActionListener(this);
+
+    resta = new JButton("RESTAR");
+    resta.setBounds(230, 50, 90, 20);
+    add(resta);
+    resta.addActionListener(this);
+
+    mul = new JButton("MULTI");
+    mul.setBounds(230, 80, 90, 20);
+    add(mul);
+    mul.addActionListener(this);
+
+    div = new JButton("DIV");
+    div.setBounds(230, 110, 90, 20);
+    add(div);
+    div.addActionListener(this);
+
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == suma) {
+
+       int n1 = 0, n2 = 0, total = 0;
+       n1 = Integer.parseInt(valor1.getText());
+       n2 = Integer.parseInt(valor2.getText());
+       total = n1 + n2;
+
+       label3.setText("Resultado: " + total);
+    }
+
+    if(e.getSource() == resta) {
+
+       int n1 = 0, n2 = 0, total = 0;
+       n1 = Integer.parseInt(valor1.getText());
+       n2 = Integer.parseInt(valor2.getText());
+       total = n1 - n2;
+
+       label3.setText("Resultado: " + total);
+    }
+
+    if(e.getSource() == mul) {
+
+       int n1 = 0, n2 = 0, total = 0;
+       n1 = Integer.parseInt(valor1.getText());
+       n2 = Integer.parseInt(valor2.getText());
+       total = n1 * n2;
+
+       label3.setText("Resultado: " + total);
+    }
+
+    if(e.getSource() == div) {
+
+       int n1 = 0, n2 = 0, total = 0;
+       n1 = Integer.parseInt(valor1.getText());
+       n2 = Integer.parseInt(valor2.getText());
+       total = n1 / n2;
+
+       label3.setText("Resultado: " + total);
+    }
+
+  } 
+
+  public static void main(String args[]) {
+
+    Calculadora ventana = new Calculadora();
+
+    ventana.setBounds(0, 0, 360,200);
+    ventana.setVisible(true);
+    ventana.setResizable(false);
+    ventana.setLocationRelativeTo(null);
+    ventana.setTitle("Calculadora");
+  }
+}
